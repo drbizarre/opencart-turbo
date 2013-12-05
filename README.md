@@ -11,6 +11,8 @@ This script will apply several changes to boost the performance of OpenCart, inc
 *   DONE: Add indexes to all foreign keys (columns ending with '_id')
 *   TODO: Delete Script Function
 *   TODO: Replace config.php and admin/config.php with dynamic Git-friendly version
+*   TODO: Accurately Detect and Remove Demo Data
+*   TODO: Remove Unwanted Zones
 
 ###Notes###
 *   This script should be deleted immediately following use  
