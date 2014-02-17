@@ -25,6 +25,8 @@ define('GITHUB_URL','https://github.com/chrisatomix/opencart-turbo/');
  */
 $index_list   = array();
 $index_list[] = 'product.model';
+$index_list[] = 'url_alias.query';
+$index_list[] = 'url_alias.keyword';
 
 
 
