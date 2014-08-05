@@ -34,6 +34,10 @@ $action = (!empty($_REQUEST['action'])) ? $_REQUEST['action'] : '';
 
 if(file_exists('./config.php')) {
   require_once './config.php';
+  
+  foreach($index_list as $item) {
+    $item = DB_PREFIX . $item;
+  }
 }
 else {
 
