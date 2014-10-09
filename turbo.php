@@ -43,6 +43,7 @@ else {
 
   die("Aborting: config.php not found!");
 }
+
 if(!$db = turbo_db_connect()) {
   die("Unable to connect to DB - Check Settings");
 }
@@ -97,6 +98,7 @@ if(!$db = turbo_db_connect()) {
       </div>
       <div class="panel-body">
         <p><?php
+          ob_start();
           switch($action) {
             case 'engine':
               turbo_switch_engine();
@@ -111,6 +113,7 @@ if(!$db = turbo_db_connect()) {
               // Nothing yet
               break;
           }
+          ob_end_flush();
           ?></p>
       </div>
     </div>
@@ -120,8 +123,6 @@ if(!$db = turbo_db_connect()) {
 </body>
 </html>
 <?php
-
-
 
 function turbo_table_indexes() {
   global $db, $index_list;
@@ -308,6 +309,14 @@ function turbo_log($input,$type='default',$label='') {
     echo '<span class="label label-'.$type.'">'.$label.'</span> ';
   }
   echo $input."<br>";
+  turbo_flush_buffers();
+}
+
+function turbo_flush_buffers() {
+  ob_end_flush();
+  ob_flush();
+  flush();
+  ob_start();
 }
 
 /**
